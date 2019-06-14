@@ -6,7 +6,7 @@
     <title>Zbj Chat Room</title>
 </head>
 <body>
-    请输入聊天室的名称<br/>
+    请输入自己的userid<br/>
     <input id="room-name-input" type="text" size="100"/><br/>
     <input id="room-name-submit" type="button" value="Enter"/>
 
@@ -19,8 +19,8 @@
         };
 
         document.querySelector('#room-name-submit').onclick = function(e) {
-            var roomName = document.querySelector('#room-name-input').value;
-            window.location.pathname = '/chatroom/' + roomName + '/';
+            var userid = document.querySelector('#room-name-input').value;
+            window.location.pathname = '/chatsolo/' + userid + '/';
         };
     </script>
 </body>

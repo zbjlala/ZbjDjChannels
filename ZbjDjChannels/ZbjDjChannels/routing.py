@@ -2,6 +2,8 @@ from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
 
 import chatroom.routing
+import chatsolo.routing
+import djim.routing
 '''
 此根路由配置指定在与Channels开发服务器建立连接时，
 ProtocolTypeRouter将首先检查连接类型。如果它是WebSocket连接（ws：//或wss：//），
@@ -14,7 +16,10 @@ ProtocolTypeRouter将首先检查连接类型。如果它是WebSocket连接（ws
 application = ProtocolTypeRouter({
     'websocket': AuthMiddlewareStack(
         URLRouter(
-            chatroom.routing.websocket_urlpatterns
+           chatroom.routing.websocket_urlpatterns + chatsolo.routing.websocket_urlpatterns + djim.routing.websocket_urlpatterns
+            #chatroom.routing.websocket_urlpatterns,
+            #chatsolo.routing.websocket_urlpatterns,
+
         )
     ),
 })
